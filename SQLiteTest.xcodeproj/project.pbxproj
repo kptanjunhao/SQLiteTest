@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275E482F1D19456B0017E058 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 275E482E1D19456B0017E058 /* libsqlite3.tbd */; };
 		27B1AB351D19423300C4128B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B1AB341D19423300C4128B /* main.m */; };
 		27B1AB381D19423300C4128B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B1AB371D19423300C4128B /* AppDelegate.m */; };
 		27B1AB3B1D19423300C4128B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B1AB3A1D19423300C4128B /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		275E482E1D19456B0017E058 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		27B1AB301D19423300C4128B /* SQLiteTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B1AB341D19423300C4128B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27B1AB361D19423300C4128B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,10 +31,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		27B1AB2D1D19423300C4128B /* Frameworks */ = {
+		275E482D1D1945510017E058 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275E482F1D19456B0017E058 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 		27B1AB271D19423300C4128B = {
 			isa = PBXGroup;
 			children = (
+				275E482E1D19456B0017E058 /* libsqlite3.tbd */,
 				27B1AB321D19423300C4128B /* SQLiteTest */,
 				27B1AB311D19423300C4128B /* Products */,
 			);
@@ -87,8 +91,8 @@
 			buildConfigurationList = 27B1AB471D19423300C4128B /* Build configuration list for PBXNativeTarget "SQLiteTest" */;
 			buildPhases = (
 				27B1AB2C1D19423300C4128B /* Sources */,
-				27B1AB2D1D19423300C4128B /* Frameworks */,
 				27B1AB2E1D19423300C4128B /* Resources */,
+				275E482D1D1945510017E058 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,7 +275,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SQLiteTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tan.SQLiteTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -282,7 +288,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SQLiteTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tan.SQLiteTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -307,6 +315,7 @@
 				27B1AB491D19423300C4128B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
