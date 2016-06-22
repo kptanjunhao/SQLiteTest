@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 #define screen [UIScreen mainScreen].bounds
 
 @interface ViewController ()
@@ -55,7 +56,19 @@
             sqlite3_close(dataBase);
         }
     }
-    
+
+}
+- (IBAction)search:(id)sender {
+    if ([senderNameLabel.text isEqualToString:@""]){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"你的姓名不能为空。" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *alert){
+            [senderNameLabel becomeFirstResponder];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    }else{
+        [self performSegueWithIdentifier:@"search" sender:self];
+    }
     
     
 }
@@ -89,7 +102,7 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSLog(@"%@",databasePath);
+    NSLog(@"数据库文件路径：%@",databasePath);
     
     if ([fileManager fileExistsAtPath:databasePath] == NO){
         const char *dbPath = [databasePath UTF8String];
@@ -115,6 +128,13 @@
     [senderNameLabel resignFirstResponder];
     [reciverNameLabel resignFirstResponder];
     [contentTextView resignFirstResponder];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UINavigationController *navController = [segue destinationViewController];
+    navController.title = senderNameLabel.text;
+    TableViewController *tableViewController = [navController viewControllers][0];
+    tableViewController.myname = senderNameLabel.text;
 }
 
 - (void)didReceiveMemoryWarning {

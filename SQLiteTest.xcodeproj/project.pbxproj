@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275C00EB1D195B210071EE7D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275C00EA1D195B210071EE7D /* TableViewController.m */; };
 		275E482F1D19456B0017E058 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 275E482E1D19456B0017E058 /* libsqlite3.tbd */; };
+		278E5B131D1A362B0045054A /* MSG.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E5B121D1A362B0045054A /* MSG.m */; };
 		27B1AB351D19423300C4128B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B1AB341D19423300C4128B /* main.m */; };
 		27B1AB381D19423300C4128B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B1AB371D19423300C4128B /* AppDelegate.m */; };
 		27B1AB3B1D19423300C4128B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B1AB3A1D19423300C4128B /* ViewController.m */; };
@@ -17,7 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		275C00E91D195B210071EE7D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		275C00EA1D195B210071EE7D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		275E482E1D19456B0017E058 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		278E5B111D1A362B0045054A /* MSG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSG.h; path = ../MSG.h; sourceTree = "<group>"; };
+		278E5B121D1A362B0045054A /* MSG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSG.m; path = ../MSG.m; sourceTree = "<group>"; };
 		27B1AB301D19423300C4128B /* SQLiteTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B1AB341D19423300C4128B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27B1AB361D19423300C4128B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		27B1AB321D19423300C4128B /* SQLiteTest */ = {
 			isa = PBXGroup;
 			children = (
+				278E5B111D1A362B0045054A /* MSG.h */,
+				278E5B121D1A362B0045054A /* MSG.m */,
 				27B1AB361D19423300C4128B /* AppDelegate.h */,
 				27B1AB371D19423300C4128B /* AppDelegate.m */,
 				27B1AB391D19423300C4128B /* ViewController.h */,
@@ -71,6 +79,8 @@
 				27B1AB411D19423300C4128B /* LaunchScreen.storyboard */,
 				27B1AB441D19423300C4128B /* Info.plist */,
 				27B1AB331D19423300C4128B /* Supporting Files */,
+				275C00E91D195B210071EE7D /* TableViewController.h */,
+				275C00EA1D195B210071EE7D /* TableViewController.m */,
 			);
 			path = SQLiteTest;
 			sourceTree = "<group>";
@@ -159,6 +169,8 @@
 				27B1AB3B1D19423300C4128B /* ViewController.m in Sources */,
 				27B1AB381D19423300C4128B /* AppDelegate.m in Sources */,
 				27B1AB351D19423300C4128B /* main.m in Sources */,
+				278E5B131D1A362B0045054A /* MSG.m in Sources */,
+				275C00EB1D195B210071EE7D /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
