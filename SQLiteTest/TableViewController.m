@@ -12,7 +12,8 @@
 
 @end
 
-@implementation TableViewController{
+@implementation TableViewController
+{
     sqlite3 *dataBase;
     NSMutableArray *msgArray;
     NSArray *dirPaths;
@@ -26,7 +27,12 @@
     char *errorMsg;
     int result = sqlite3_exec(dataBase,[sql UTF8String], NULL,NULL,&errorMsg);
     return result;
+    
 }
+
+
+
+
 
 - (NSMutableArray*)getResult{
     sqlite3_stmt *statement;
@@ -53,6 +59,7 @@
                         Ccontent = "";
                     }
                     NSInteger msgID = [[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 0)] integerValue];
+                    NSLog(@"ID: %ld",(long)msgID);
                     NSString *content = [NSString stringWithCString:Ccontent encoding:NSUTF8StringEncoding];
                     NSString *sender = [NSString stringWithCString:(char*)sqlite3_column_text(statement,2) encoding:NSUTF8StringEncoding];
                     NSString *reciver = [NSString stringWithCString:(char*)sqlite3_column_text(statement,3) encoding:NSUTF8StringEncoding];
@@ -91,7 +98,10 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     msgArray = [self getResult];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(dismissController)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(dismissController)];
     self.navigationItem.leftBarButtonItem = backItem;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

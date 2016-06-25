@@ -12,7 +12,11 @@
 
 @synthesize sender,reciver,content,msgID;
 
--(id)initWithID:(NSInteger)msgid Content:(NSString*)msgContent Sender:(NSString*)msgSender Reciver:(NSString*)msgReciver{
+-(id)initWithID:(NSInteger)msgid
+        Content:(NSString*)msgContent
+         Sender:(NSString*)msgSender
+        Reciver:(NSString*)msgReciver
+{
     if (self = [super init]){
         msgID = msgid;
         content = msgContent;

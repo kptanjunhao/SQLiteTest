@@ -13,6 +13,9 @@
 @property NSString *sender,*reciver,*content;
 @property NSInteger msgID;
 
--(id)initWithID:(NSInteger)msgid Content:(NSString*)msgContent Sender:(NSString*)msgSender Reciver:(NSString*)msgReciver;
+-(id)initWithID:(NSInteger)msgid
+        Content:(NSString*)msgContent
+         Sender:(NSString*)msgSender
+        Reciver:(NSString*)msgReciver;
 
 @end

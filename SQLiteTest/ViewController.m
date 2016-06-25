@@ -24,6 +24,7 @@
     __weak IBOutlet UITextField *reciverNameLabel;
     __weak IBOutlet UITextView *contentTextView;
 }
+
 @synthesize dataBase;
 
 - (IBAction)saveMsg:(id)sender {
@@ -35,6 +36,7 @@
         UIAlertController *alertController = [[UIAlertController alloc] init];
         alertController.title = @"提醒";
         [alertController addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleDestructive handler:nil]];
+        
         if ([senderNameLabel.text isEqualToString:@""]){
             alertController.message = @"你的姓名不能为空";
             [self presentViewController:alertController animated:YES completion:nil];
@@ -43,27 +45,38 @@
             [self presentViewController:alertController animated:YES completion:nil];
         }else{
             alertController = nil;
-            NSString *insertsql = [NSString stringWithFormat:@"INSERT INTO MSG(SENDER,RECIVER,CONTENT) VALUES('%@','%@','%@')",senderNameLabel.text,reciverNameLabel.text,contentTextView.text];
+            NSString *insertsql = [NSString stringWithFormat:@"INSERT INTO MSG(SENDER,RECIVER,CONTENT) VALUES('%@','%@','%@')",
+                                                            senderNameLabel.text,reciverNameLabel.text,contentTextView.text];
+            
             const char *insertstatement = [insertsql UTF8String];
             sqlite3_prepare_v2(dataBase,insertstatement,-1,&statement,nil);
+            
             if (sqlite3_step(statement)==SQLITE_DONE){
                 [self clearText];
                 statusLabel.text = @"成功保存到数据库";
             }else{
                 statusLabel.text = @"保存失败";
             }
+            
             sqlite3_finalize(statement);
             sqlite3_close(dataBase);
         }
     }
-
+    
 }
 - (IBAction)search:(id)sender {
     if ([senderNameLabel.text isEqualToString:@""]){
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"你的姓名不能为空。" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *alert){
-            [senderNameLabel becomeFirstResponder];
-        }]];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                                 message:@"你的姓名不能为空。"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"好"
+                                                            style:UIAlertActionStyleDestructive
+                                                          handler:^(UIAlertAction *alert) {
+                                                                        [senderNameLabel becomeFirstResponder];
+                                                          }
+                                    ]
+         ];
         [self presentViewController:alertController animated:YES completion:nil];
         
     }else{
@@ -74,10 +87,18 @@
 }
 
 - (IBAction)clearText:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确定要清除文本框内容吗？" preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self clearText];
-    }]];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告"
+                                                                             message:@"确定要清除文本框内容吗？"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定"
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          [self clearText];
+                                                      }
+                                ]
+     ];
+    
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];
     
